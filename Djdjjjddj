@@ -111,13 +111,19 @@ UpgradeTower(-22.266, 3.291, 5500)
 UpgradeTower(20.083, 12.992, 10000)
 UpgradeTower(20.083, 12.992, 13500)
 UpgradeTower(20.083, 12.992, 36000)
-SetTower("Unit 1", "Field Medic", 20.083, 12.992, 0)
 UpgradeTower(22.731, 18.465, 10000)
 UpgradeTower(22.731, 18.465, 13500)
 UpgradeTower(22.731, 18.465, 36000)
 UpgradeTower(24.925, 12.927, 10000)
 UpgradeTower(24.925, 12.927, 13500)
 UpgradeTower(24.925, 12.927, 36000)
+SetTower("Unit 1", "Field Medic", 20.083, 12.992, 0)
+UpgradeTower(-18.170, -2.115, 5500)
+UpgradeTower(-18.170, -2.115, 15000)
+UpgradeTower(-18.185, -5.277, 5500)
+UpgradeTower(-18.185, -5.277, 15000)
+UpgradeTower(-18.285, -8.517, 5500)
+UpgradeTower(-18.285, -8.517, 15000)
 AutoAirDrop(
     {
         {20.083, 12.992}, -- Mercenary Base coordinates
@@ -133,12 +139,6 @@ AutoAirDrop(
     },
     {1, 23.656, 1.125, 15.705, 154.055} -- Air-Drop target coordinates
 )
-UpgradeTower(-18.170, -2.115, 5500)
-UpgradeTower(-18.170, -2.115, 15000)
-UpgradeTower(-18.185, -5.277, 5500)
-UpgradeTower(-18.185, -5.277, 15000)
-UpgradeTower(-18.285, -8.517, 5500)
-UpgradeTower(-18.285, -8.517, 15000)
 PlaceTower("Warlock", -12.150,1.000,-3.265, 4200)
 UpgradeTower(-12.150, -3.265, 2500)
 UpgradeTower(-12.150, -3.265, 6800)
