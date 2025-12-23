@@ -220,3 +220,11 @@ SetTower("Unit 3", "Riot Guard", -36.595, -33.359, 1115)
 useAbility1("Air-Drop", 17.739, 7.009, 1, -5.747, 1.125, -8.062, 151.347, 1232)
 useAbility1("Air-Drop", -29.963, -32.949, 1, -5.709, 1.125, -8.086, 150.702, 1233)
 useAbility1("Air-Drop", -36.595, -33.359, 1, -5.782, 1.125, -8.041, 151.347, 1233)
+AutoAirDrop(
+    {
+        {-29.963, -32.949}, -- Mercenary Base coordinates
+        {-36.595, -33.359}, -- Mercenary Base coordinates
+        {17.739, 7.009}, -- Mercenary Base coordinates
+    },
+    {1, -33.524, 1.125, -30.996, 291.748} -- Air-Drop target coordinates
+)
