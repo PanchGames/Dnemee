@@ -13,7 +13,7 @@ local TDS = loadstring(game:HttpGet("https://raw.githubusercontent.com/PanchGame
 -- [[ START STRATEGY ]]
 TDS:Loadout("Scout", "Accelerator", "Mercenary Base", "Hacker", "Warlock")
 TDS:Mode("Frost")
-TDS:GameInfo("Simplicity", {})
+TDS:GameInfo("Simplicity", {Glass = true, Committed = true, HiddenEnemies = true})
 
 TDS:UnlockTimeScale()
 TDS:TimeScale(2)
