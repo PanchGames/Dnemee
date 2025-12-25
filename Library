@@ -29,9 +29,6 @@ end
 local replicated_storage = game:GetService("ReplicatedStorage")
 local remote_func = replicated_storage:WaitForChild("RemoteFunction")
 local remote_event = replicated_storage:WaitForChild("RemoteEvent")
-if replicated_storage:FindFirstChild("Network") and replicated_storage.Network:FindFirstChild("Modifiers") then
-    local bulk_modifiers = replicated_storage:WaitForChild("Network"):WaitForChild("Modifiers"):WaitForChild("RF:BulkVoteModifiers")
-end
 local players_service = game:GetService("Players")
 local local_player = players_service.LocalPlayer or players_service.PlayerAdded:Wait()
 local player_gui = local_player:WaitForChild("PlayerGui")
@@ -331,6 +328,7 @@ local function select_map_override(map_id)
 end
 
 local function cast_modifier_vote(mods_table)
+    local bulk_modifiers = replicated_storage:WaitForChild("Network"):WaitForChild("Modifiers"):WaitForChild("RF:BulkVoteModifiers")
     local selected_mods = mods_table or {
         HiddenEnemies = true, Glass = true, ExplodingEnemies = true,
         Limitation = true, Committed = true, HealthyEnemies = true,
@@ -344,16 +342,6 @@ local function cast_modifier_vote(mods_table)
 end
 
 -- // timescale logic
-local function unlock_speed_tickets()
-    if local_player.TimescaleTickets.Value >= 1 then
-        if player_gui.ReactUniversalHotbar.Frame.timescale.Lock.Visible then
-            replicated_storage.RemoteFunction:InvokeServer('TicketsManager', 'UnlockTimeScale')
-        end
-    else
-        warn("no tickets left")
-    end
-end
-
 local function set_game_timescale(target_val)
     local speed_list = {0, 0.5, 1, 1.5, 2}
 
@@ -366,9 +354,7 @@ local function set_game_timescale(target_val)
     end
     if not target_idx then return end
 
-    local speed_label =
-        game.Players.LocalPlayer.player_gui
-        .ReactUniversalHotbar.Frame.timescale.Speed
+    local speed_label = game.Players.LocalPlayer.PlayerGui.ReactUniversalHotbar.Frame.timescale.Speed
 
     local current_val = tonumber(speed_label.Text:match("x([%d%.]+)"))
     if not current_val then return end
@@ -392,6 +378,17 @@ local function set_game_timescale(target_val)
             "TicketsManager",
             "CycleTimeScale"
         )
+        task.wait(0.5)
+    end
+end
+
+local function unlock_speed_tickets()
+    if local_player.TimescaleTickets.Value >= 1 then
+        if game.Players.LocalPlayer.PlayerGui.ReactUniversalHotbar.Frame.timescale.Lock.Visible then
+            replicated_storage.RemoteFunction:InvokeServer('TicketsManager', 'UnlockTimeScale')
+        end
+    else
+        warn("no tickets left")
     end
 end
 
@@ -596,18 +593,6 @@ function TDS:Loadout(...)
 end
 
 -- ingame
-function TDS:TeleportAfterMatch()
-    handle_post_match()
-end
-
-function TDS:UnlockTimeScale()
-    unlock_speed_tickets()
-end
-
-function TDS:UseTimeScale(num)
-    set_game_timescale(num)
-end
-
 function TDS:TeleportToLobby()
     send_to_lobby()
 end
@@ -626,6 +611,14 @@ function TDS:GameInfo(name, list)
 
     cast_modifier_vote(list)
     select_map_override(name)
+end
+
+function TDS:UnlockTimeScale()
+    unlock_speed_tickets()
+end
+
+function TDS:TimeScale(val)
+    set_game_timescale(val)
 end
 
 function TDS:StartGame()
@@ -835,7 +828,7 @@ local function StartBackToLobbyLoop()
     task.spawn(function()
         while true do
             pcall(function()
-                TDS:TeleportAfterMatch()
+                handle_post_match()
             end)
             task.wait(5)
         end
