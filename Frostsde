@@ -4,7 +4,7 @@ _G.AutoSkip = false
 _G.AutoSnowballs = false
 
 -- [[ WEBHOOK SETTINGS ]]
-_G.SendWebhook = true -- Set to true to enable notifications
+_G.SendWebhook = false -- Set to true to enable notifications
 _G.Webhook = "https://discord.com/api/webhooks/1451873955857170556/hYjmRdQX-F4l-Q35n6gDvlZbzLp34MavjZvQs7Y-V6_iaMWs2BM5QaGJ16jH-t0vc1cU" 
 
 -- [[ INITIALIZE LIBRARY ]]
@@ -13,8 +13,10 @@ local TDS = loadstring(game:HttpGet("https://raw.githubusercontent.com/PanchGame
 -- [[ START STRATEGY ]]
 TDS:Loadout("Scout", "Accelerator", "Mercenary Base", "Hacker", "Warlock")
 TDS:Mode("Frost")
-TDS:GameInfo("Simplicity", {Glass}, {Committed})
+TDS:GameInfo("Simplicity", {})
 
+TDS:UnlockTimeScale()
+TDS:TimeScale(2)
 TDS:Place("Scout", -15.24, 1.00, -8.97) -- 1
 TDS:Place("Scout", -16.65, 1.00, -11.65) -- 2
 TDS:Place("Scout", -19.71, 1.00, -12.34) -- 3
