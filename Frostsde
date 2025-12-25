@@ -8,7 +8,7 @@ _G.SendWebhook = true -- Set to true to enable notifications
 _G.Webhook = "https://discord.com/api/webhooks/1451873955857170556/hYjmRdQX-F4l-Q35n6gDvlZbzLp34MavjZvQs7Y-V6_iaMWs2BM5QaGJ16jH-t0vc1cU" 
 
 -- [[ INITIALIZE LIBRARY ]]
-local TDS = loadstring(game:HttpGet("https://raw.githubusercontent.com/DuxiiT/auto-strat/refs/heads/main/Library.lua"))()
+local TDS = loadstring(game:HttpGet("https://raw.githubusercontent.com/PanchGames/Dnemee/refs/heads/main/Library"))()
 
 -- [[ START STRATEGY ]]
 TDS:Loadout("Scout", "Accelerator", "Mercenary Base", "Hacker", "Warlock")
