@@ -5,7 +5,7 @@ _G.AntiLag = true
 _G.AutoPickups = true
 
 -- [[ WEBHOOK SETTINGS ]]
-_G.SendWebhook = false -- Set to true to enable notifications
+_G.SendWebhook = true -- Set to true to enable notifications
 _G.Webhook = "https://discord.com/api/webhooks/1451873955857170556/hYjmRdQX-F4l-Q35n6gDvlZbzLp34MavjZvQs7Y-V6_iaMWs2BM5QaGJ16jH-t0vc1cU" 
 
 -- [[ INITIALIZE LIBRARY ]]
@@ -14,7 +14,7 @@ local TDS = loadstring(game:HttpGet("https://raw.githubusercontent.com/DuxiiT/au
 -- [[ START STRATEGY ]]
 TDS:Loadout("Scout", "Accelerator", "Mercenary Base", "Hacker", "Warlock")
 TDS:Mode("Frost")
-TDS:GameInfo("Simplicity", {})
+TDS:GameInfo("Simplicity", {Glass = true, Committed = true, HiddenEnemies = true, ExplodingEnemies = false})
 
 TDS:UnlockTimeScale()
 TDS:TimeScale(2)
