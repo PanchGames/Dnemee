@@ -15,7 +15,7 @@ TDS:Addons()
 -- [[ START STRATEGY ]]
 TDS:Loadout("Scout", "Hacker", "Mercenary Base", "Accelerator", "Warlock")
 TDS:Mode("Frost")
-TDS:GameInfo("Simplicity", {HiddenEnemies = true, Committed = true, ExplodingEnemies = true, Glass = true, Quarantine = true})
+TDS:GameInfo("Simplicity", {HiddenEnemies = true, Committed = true, ExplodingEnemies = true, Glass = true, Quarantine = false})
 
 TDS:UnlockTimeScale()
 TDS:TimeScale(2)
