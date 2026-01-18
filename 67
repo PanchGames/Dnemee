@@ -17,8 +17,6 @@ TDS:Loadout("Scout", "Hacker", "Mercenary Base", "Accelerator", "Warlock")
 TDS:Mode("Frost")
 TDS:GameInfo("Simplicity", {HiddenEnemies = true, Committed = true, ExplodingEnemies = true, Glass = true, Quarantine = true})
 
-TDS:UnlockTimeScale()
-TDS:TimeScale(2)
 TDS:VoteSkip(1, 34)
 TDS:VoteSkip(36)
 TDS:VoteSkip(37)
